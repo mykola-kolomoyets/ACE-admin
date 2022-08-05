@@ -1,0 +1,9 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/colors.scss';
+
+.section {
+  @include box-shadow();
+  background-color: $white;
+  padding: 16px 24px;
+  overflow: auto;
+}

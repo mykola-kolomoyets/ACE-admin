@@ -1,0 +1,49 @@
+@import './../../styles/colors.scss';
+@import './../../styles/mixins.scss';
+
+.users {
+  &__title {
+    @include flex(row, space-between, center);
+    gap: 16px;
+    margin-bottom: 24px;
+
+    @media screen and (max-width: 750px) {
+      @include flex(column, center, flex-start);
+    }
+
+    &_buttons {
+      @include flex(row, flex-end, center);
+      gap: 16px;
+
+      @media not all and (min-resolution: .001dpcm) {
+        @supports (-webkit-appearance:none) {
+          button:first-child {
+            margin-right: 16px;
+          }
+
+        }
+      }
+    }
+  }
+
+  &__table {
+    padding-top: 40px !important;
+  }
+
+  &__popup {
+    &_title {
+      margin-bottom: 16px;
+    }
+
+    &_subtitle {
+      margin-bottom: 16px;
+    }
+
+    &_form {
+      &_buttons {
+        @include flex(row, space-between, center);
+        margin-top: 24px;
+      }
+    }
+  }
+}

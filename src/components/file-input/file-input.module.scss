@@ -1,0 +1,17 @@
+@import './../../styles/colors.scss';
+@import './../../styles/mixins.scss';
+
+.error {
+  button {
+    border-color: $red !important;
+
+  }
+
+  &__title {
+    margin-top: 4px;
+  }
+}
+
+.file-input-container {
+  @include flex(column, flex-start, flex-start);
+}

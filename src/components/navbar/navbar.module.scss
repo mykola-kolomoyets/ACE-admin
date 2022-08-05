@@ -1,0 +1,43 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/colors.scss';
+
+.navbar {
+  padding: 24px 12px;
+
+  &__item {
+    @include flex(row, flex-start, center);
+    gap: 13px;
+    padding: 13px;
+    cursor: pointer;
+
+    @media not all and (min-resolution: .001dpcm) {
+      @supports (-webkit-appearance:none) {
+        svg {
+          margin-right: 13px;
+        }
+      }
+    }
+
+    svg path {
+      fill: $gray;
+    }
+
+    &:hover {
+      svg path {
+        fill: $black;
+      }
+    }
+
+    &_active {
+      background-color: $light-gray;
+
+      svg path {
+        fill: $black;
+      }
+
+      p {
+        color: $black;
+      }
+    }
+  }
+}

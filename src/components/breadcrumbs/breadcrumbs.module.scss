@@ -1,0 +1,23 @@
+@import './../../styles/mixins.scss';
+
+.breadcrumbs {
+  @include flex(row, flex-start, center);
+  gap: 10px;
+
+  @media not all and (min-resolution: .001dpcm) {
+    @supports (-webkit-appearance:none) {
+      h4 {
+        padding-right: 10px;
+      }
+
+      svg {
+        margin-right: 10px;
+      }
+
+    }
+  }
+
+  &__start {
+    cursor: pointer;
+  }
+}

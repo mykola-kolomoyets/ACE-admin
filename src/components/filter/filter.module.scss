@@ -1,0 +1,18 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/colors.scss';
+
+.filter {
+  @include flex();
+
+  &__item {
+    padding: 8px 14px;
+    background-color: $light-gray;
+    border: 1px solid $middle-gray;
+    cursor: pointer;
+
+    &_active {
+      border: 1px solid $black;
+      background-color: $black;
+    }
+  }
+}

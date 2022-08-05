@@ -1,0 +1,56 @@
+@import './../../styles/colors.scss';
+@import './../../styles/mixins.scss';
+
+.dashboard {
+  > * {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    @include flex(row, space-between, center);
+    gap: 16px;
+    flex-gap: 16px;
+
+    @media screen and (max-width: 1000px) {
+      @include flex(column, center, flex-start);
+    }
+
+    &_buttons {
+      @include flex(row, flex-end, center);
+
+      & > * {
+        margin-left: 16px;
+      }
+
+    }
+  }
+
+  &__summary {
+    display: grid;
+    gap: 30px;
+    flex-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  &__table {
+    &_title {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__chart {
+    &_chart {
+      canvas {
+        max-height: 350px !important;
+        max-width: 100%;
+      }
+    }
+
+    &_badges {
+      @include flex();
+      gap: 30px;
+      flex-gap: 30px;
+      margin-bottom: 24px;
+    }
+  }
+}

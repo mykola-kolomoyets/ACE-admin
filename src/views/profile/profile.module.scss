@@ -1,0 +1,37 @@
+@import './../../styles/mixins.scss';
+
+.profile {
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__info {
+    max-width: 730px;
+
+    &_title {
+      margin-bottom: 24px;
+    }
+
+    &_list {
+      margin-bottom: 24px;
+    }
+
+    &_buttons {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+
+  &__edit_info_form,
+  &__edit_password_form {
+    &_title {
+      margin-bottom: 16px;
+    }
+
+    &_buttons {
+      @include flex(row, space-between, center);
+      gap: 16px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import './colors.scss';
+
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin inline-flex($direction: row, $justify: flex-start, $align: flex-start) {
+  display: inline-flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin center-content() {
+  display: grid;
+  place-items: center;
+}
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin box-shadow() {
+  box-shadow: inset 0px -1px 0px $light-gray;
+}
+
+@mixin spinnerAnimation() {
+  animation: 0.75s linear 0s infinite running spinner;
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

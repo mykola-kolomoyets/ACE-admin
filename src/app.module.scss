@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+@import './styles/colors.scss';
+
+html {
+  background-color: $bg-gray;
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Inter', sans-serif;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+.app {
+  margin: 0 auto;
+  height: 100vh;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-areas: 'navbar content';
+    min-height: calc(100vh - 88px);
+  }
+
+  &__left {
+    grid-area: navbar;
+  }
+
+  &__right {
+    grid-area: content;
+    background-color: $light-gray;
+    padding: 24px 45px;
+  }
+}

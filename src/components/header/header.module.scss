@@ -1,0 +1,7 @@
+@import './../../styles/mixins.scss';
+
+.header {
+  @include flex(row, space-between, center);
+  @include box-shadow();
+  padding: 24px 16px;
+}

@@ -1,0 +1,50 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/colors.scss';
+
+.login {
+    &__container {
+        @include center-content();
+        height: 100vh;
+        padding: 0 16px;
+        overflow: hidden;
+        background-color: $bg-gray;
+    }
+
+    &__content {
+        width: calc(min(100%, 350px));
+        margin: 0 auto;
+    }
+
+    &__form {
+        box-shadow: 0 8px 16px rgba(227, 0, 15, 0.04);
+    }
+
+    &__logo {
+        @include flex(row, center, center);
+        margin-bottom: 96px;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+    }
+
+    &__subtitle {
+        margin-bottom: 24px;
+    }
+
+    &__email {
+        margin-bottom: 16px;
+    }
+
+    &__password {
+        position: relative;
+        margin-bottom: 24px;
+
+        &_forgot {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}

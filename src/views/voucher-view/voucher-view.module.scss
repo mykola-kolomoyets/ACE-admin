@@ -1,0 +1,95 @@
+@import './../../styles/mixins.scss';
+
+.voucher_view {
+  &__title {
+    @include flex(row, space-between, center);
+    margin-bottom: 24px;
+  }
+
+  &__buttons {
+    @include flex(row, space-between, center);
+    gap: 24px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-areas: 'left right';
+    grid-gap: 30px;
+
+    @media screen and (max-width: 1100px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'left' 'right';
+    }
+
+    &_title {
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+
+    &_image {
+      @include size(150px);
+      margin: 24px 0;
+
+      picture {
+        @include size(inherit);
+        position: relative;
+        margin-top: 4px;
+
+        img {
+          @include size(inherit);
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  &__table {
+    &_title {
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__info {
+    &_title {
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__left {
+    grid-area: left;
+    display: grid;
+    gap: 24px;
+
+    @media not all and (min-resolution: .001dpcm) {
+      @supports (-webkit-appearance:none) {
+        margin-right: 24px;
+
+        & > * {
+          margin-bottom: 30px;
+        }
+
+      }
+    }
+  }
+
+  &__right {
+    grid-area: right;
+  }
+
+  &__delete {
+    &_title {
+      margin-bottom: 16px;
+    }
+
+    &_subtitle {
+      margin-bottom: 24px;
+    }
+
+    &_buttons {
+      @include flex(row, space-between, center);
+    }
+  }
+}

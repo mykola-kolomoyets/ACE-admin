@@ -1,0 +1,129 @@
+@import './../../styles/colors.scss';
+@import './../../styles/mixins.scss';
+
+.radio {
+  text-align: left;
+  margin-bottom: 16px;
+  width: 100%;
+
+  &__label {
+    font-size: 14px;
+    line-height: 22px;
+    color: #808080;
+    font-weight: 300;
+  }
+
+  &__sub-label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  &__label-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid $middle-gray;
+    padding: 5px;
+
+    & > svg {
+      margin-right: 10px;
+    }
+  }
+
+  &__inputs-wrapper {
+    @include flex(column, flex-start, stretch);
+    gap: 16px;
+    margin-top: 5px;
+
+    .radio__container {
+      width: 100%;
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000;
+    user-select: none;
+    border: 1px solid $middle-gray;
+    height: 40px;
+
+
+    &_active {
+      color: $blue;
+      border: 1px solid $blue;
+    }
+
+    &_disabled {
+      color: $gray;
+      background-color: $light-gray;
+      border: 1px solid $middle-gray;
+
+      & input:checked + .radio__checkmark {
+        background: $middle-gray !important;
+      }
+    }
+
+    & > input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    & input:checked + .radio__checkmark {
+      background: $blue;
+      border: 1px solid transparent;
+    }
+
+    & input:checked ~ .radio__checkmark::after {
+      display: block;
+      background: $white;
+    }
+
+    & .radio__checkmark::after {
+      top: 3.3px;
+      left: 3.3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $blue;
+    }
+
+    & .radio__checkmark_disabled::after {
+      background: $middle-gray;
+    }
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 1px solid $middle-gray;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: none;
+    }
+  }
+
+  &__error-message {
+    display: block;
+    margin-bottom: 4px;
+    color: red !important;
+  }
+}

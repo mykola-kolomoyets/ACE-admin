@@ -1,0 +1,9 @@
+@import './../../styles/mixins.scss';
+
+.chart_badge {
+  span {
+    @include size(12px);
+    border-radius: 50%;
+    margin-right: 14px;
+  }
+}

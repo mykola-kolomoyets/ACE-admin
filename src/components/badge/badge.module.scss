@@ -1,0 +1,14 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/colors.scss';
+
+.badge {
+  @include inline-flex(row, flex-start, center);
+  gap: 4px;
+  padding: 0 8px;
+  background-color: $light-gray;
+
+  &__icon {
+    @include center-content();
+
+  }
+}

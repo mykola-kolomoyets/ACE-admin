@@ -1,0 +1,127 @@
+@import './../../styles/colors.scss';
+@import './../../styles/mixins.scss';
+
+.table {
+  overflow-x: scroll;
+  width: 100%;
+
+  &__container {
+    width: auto;
+    overflow-x: scroll;
+  }
+
+  &__head {
+    &_row {
+      background-color: $light-gray;
+    }
+
+    &_item {
+      cursor: pointer;
+      padding: 8px 16px;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      min-width: min-content;
+
+      svg {
+        margin-left: 8px;
+
+        path {
+          fill: $middle-gray;
+        }
+      }
+
+      &_arrow {
+        &_ascending {
+          transform: rotate(90deg);
+        }
+
+        &_descending {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
+  &__body {
+    &_row {
+      cursor: pointer;
+
+      &_item {
+        border-bottom: 1px solid $light-gray;
+        padding: 16px;
+      }
+    }
+  }
+
+  &__cell {
+    &_string_with_icon {
+      display: inline;
+      white-space: nowrap;
+    }
+
+    &_with_icon {
+      @include flex(row, flex-start, center);
+      gap: 8px !important;
+
+      svg {
+        flex-shrink: 0;
+
+        @media not all and (min-resolution: .001dpcm) {
+          @supports (-webkit-appearance:none) {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+
+    &_with_tooltip {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: attr(data-tooltip);
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &_date {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &_status {
+      @media not all and (min-resolution: .001dpcm) {
+        @supports (-webkit-appearance:none) {
+          margin-right: 12px;
+        }
+      }
+
+      &_wrapper {
+        @include flex(row, flex-start, center);
+        gap: 12px;
+      }
+
+      @include size(8px);
+      border-radius: 50%;
+
+      &_active,
+      &_valid {
+        background-color: $green;
+      }
+
+      &_inactive,
+      &_expired {
+        background-color: $red;
+      }
+
+      &_pending,
+      &_redeemed {
+        background-color: $orange;
+      }
+    }
+  }
+}

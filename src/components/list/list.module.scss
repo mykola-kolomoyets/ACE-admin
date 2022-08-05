@@ -1,0 +1,73 @@
+@import './../../styles/colors.scss';
+@import './../../styles/mixins.scss';
+
+.list {
+  &__vertical {
+    @include flex(column, flex-start, flex-start);
+    gap: 16px;
+
+  }
+
+  &__horizontal {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    li {
+      display: inline-block;
+    }
+  }
+
+  &_item {
+    @media not all and (min-resolution: .001dpcm) {
+      @supports (-webkit-appearance:none) {
+        & + & {
+          margin-top: 16px;
+        }
+      }
+    }
+
+    &__copy {
+      position: relative;
+      cursor: pointer;
+      gap: 8px;
+
+      @media not all and (min-resolution: .001dpcm) {
+        @supports (-webkit-appearance:none) {
+          & > * {
+            margin-right: 8px;
+          }
+
+        }
+      }
+
+      &:hover {
+        background-color: $light-gray;
+
+        &:before {
+          position: absolute;
+          content: 'Click to copy';
+
+          top: -5px;
+          left: calc(100% + 20px);
+
+          width: max-content;
+
+          padding: 2px 8px;
+
+          background-color: #fff;
+
+          border-radius: 8px;
+          border: 1px solid #e8e7e7;
+        }
+      }
+
+
+      &_active {
+        path {
+          fill: $blue;
+        }
+      }
+    }
+  }
+}

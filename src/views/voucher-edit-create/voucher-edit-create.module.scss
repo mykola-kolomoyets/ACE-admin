@@ -1,0 +1,105 @@
+@import './../../styles/mixins.scss';
+
+.voucher_update {
+  &__title {
+    @include flex(row, space-between, center);
+    gap: 16px;
+    margin-bottom: 24px;
+
+    @media screen and (max-width: 1000px) {
+      @include flex(column, space-between, stretch);
+    }
+  }
+
+  &__buttons {
+    @include flex(row, space-between, center);
+    gap: 16px;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 1000px) {
+      @include flex(row, flex-start, center);
+    }
+
+    @media not all and (min-resolution: .001dpcm) {
+      @supports (-webkit-appearance:none) {
+        button:first-child {
+          margin-right: 16px;
+        }
+
+      }
+    }
+  }
+
+  &__content {
+    width: calc(min(100%, 730px));
+
+    &_title {
+      margin-top: 8px;
+    }
+  }
+
+  &__image {
+    &_img {
+      @include size(150px);
+      @include center-content();
+      margin-bottom: 16px;
+
+      background-color: $light-gray;
+
+      img {
+        @include size(inherit);
+        position: relative;
+        object-fit: cover;
+      }
+    }
+
+    &_buttons {
+      @include flex(row, flex-start, flex-start);
+      flex-wrap: wrap;
+      gap: 16px;
+
+    }
+  }
+
+  &__redeemed {
+    margin-top: 24px;
+
+    &_title {
+      margin: 8px 0 16px 0;
+    }
+
+
+    &_container {
+      @include flex(row, stretch, flex-start);
+      gap: 16px;
+      padding: 16px;
+      border-bottom: 1px solid $light-gray;
+    }
+
+    &_left {
+      flex: 1;
+
+      & > * {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    &_right {
+      flex: 1;
+      @include flex(row, space-between, center);
+      margin-left: 16px;
+
+      button svg path {
+        fill: $middle-gray;
+      }
+    }
+
+    &_footer {
+      padding: 16px;
+
+      button svg path {
+        fill: $gray;
+      }
+    }
+  }
+}

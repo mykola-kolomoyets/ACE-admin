@@ -1,0 +1,37 @@
+@import './../../styles/mixins.scss';
+@import './../../styles/colors.scss';
+
+.avatar {
+  position: relative;
+  @include flex(row, flex-start, center);
+  gap: 12px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover, &:focus {
+    background-color: $light-gray;
+
+    img {
+      border: 2px solid $black;
+    }
+  }
+
+  &__image {
+    @include size(32px);
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+      border: 2px solid transparent;
+    }
+  }
+
+
+  .dropdown {
+    position: absolute;
+    top: 40px;
+    padding-top: 10px;
+    right: 0;
+  }
+}

@@ -1,0 +1,55 @@
+@import './../../styles/colors.scss';
+@import './../../styles/mixins.scss';
+
+.pagination {
+  @include flex(row, space-between, center);
+  width: calc(100% - 16px);
+  height: auto;
+  margin-top: 24px;
+  padding: 0 16px;
+
+  @media screen and (max-width: 575px) {
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__counter {
+    @media screen and (max-width: 575px) {
+      margin: 12px 0;
+    }
+  }
+
+  &__controls {
+    @include flex();
+    gap: 16px;
+
+    button:nth-child(2) {
+      svg {
+        margin-left: 8px;
+      }
+    }
+
+    @media not all and (min-resolution: .001dpcm) {
+      @supports (-webkit-appearance:none) {
+        button:first-child {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+
+  &__left_arrow {
+    path {
+      fill: $gray;
+    }
+  }
+
+  &__right_arrow {
+    path {
+      fill: $gray;
+    }
+  }
+}
